@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Options – Preuve Haine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Options</h1>
+    <p class="intro">La clé est facultative. Avec elle, Claude analyse chaque pièce et propose une qualification juridique, pour quelques centimes par pièce : crée-la sur <a href="https://console.anthropic.com" target="_blank" rel="noreferrer">console.anthropic.com</a>. Sans clé, tu qualifies toi-même chaque pièce dans le dossier.</p>
+    <form id="formulaire" class="champ">
+      <label for="cle">Clé API Anthropic</label>
+      <input id="cle" type="password" autocomplete="off" placeholder="sk-ant-…" required>
+      <div class="actions">
+        <button class="bouton bouton--plein" type="submit">Enregistrer la clé</button>
+        <button class="bouton bouton--danger" type="button" id="supprimer-cle">Supprimer la clé</button>
+        <a class="bouton" href="dossier.html">Ouvrir le dossier</a>
+      </div>
+      <p class="confirmation" id="confirmation" role="status"></p>
+    </form>
+    <form id="formulaire-associations" class="champ">
+      <label for="associations">Associations en copie cachée (une adresse par ligne)</label>
+      <textarea id="associations" rows="5" spellcheck="false"></textarea>
+      <div class="actions">
+        <button class="bouton bouton--plein" type="submit">Enregistrer les adresses</button>
+      </div>
+      <p class="confirmation" id="confirmation-associations" role="status"></p>
+    </form>
+    <p class="note">La clé est stockée dans ce navigateur et n'est envoyée qu'à api.anthropic.com. N'installe pas cette extension sur un ordinateur partagé.</p>
+  </main>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

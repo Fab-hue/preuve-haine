@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preuve Haine : guide d'installation</title>
+<style>
+  :root {
+    --papier: #eef1f4; --feuille: #fbfcfd; --encre: #1b2a3a; --encre-douce: #556474;
+    --filet: #cbd3dc; --sceau: #a52a24; --sauge: #3b6a55;
+    --serif: "Iowan Old Style", "Charter", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --papier: #131b24; --feuille: #1a242f; --encre: #e4e9ef; --encre-douce: #9aa8b6; --filet: #2f3c4a; --sceau: #ef7a70; --sauge: #7fc2a3; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--papier); color: var(--encre); font: 16px/1.6 var(--sans); }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 80px; }
+  h1, h2 { font-family: var(--serif); line-height: 1.2; }
+  h1 { font-size: 2.2rem; margin: 0 0 8px; }
+  h2 { font-size: 1.4rem; margin: 48px 0 12px; padding-top: 24px; border-top: 1px solid var(--filet); }
+  .chapo { color: var(--encre-douce); font-size: 1.1rem; margin: 0; }
+  ol, ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  code { font-family: var(--mono); font-size: 0.88em; background: var(--feuille); border: 1px solid var(--filet); border-radius: 4px; padding: 1px 5px; }
+  .encadre { background: var(--feuille); border: 1px solid var(--filet); border-left: 4px solid var(--encre); border-radius: 4px; padding: 14px 18px; margin: 16px 0; }
+  .encadre--alerte { border-left-color: var(--sceau); }
+  .encadre p { margin: 6px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--filet); }
+  th { font-family: var(--serif); }
+  .oui { color: var(--sceau); font-weight: 600; }
+  .non { color: var(--sauge); font-weight: 600; }
+  a { color: inherit; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Preuve Haine</h1>
+  <p class="chapo">Une extension de navigateur pour archiver les commentaires haineux (racisme, antisémitisme, néonazisme, haine anti-musulmans…) avec des preuves propres, puis les signaler en un seul envoi aux autorités et aux associations.</p>
+
+  <div class="encadre">
+    <p><strong>En bref :</strong> tu sélectionnes un commentaire, clic droit, « Archiver comme preuve ». L'extension prend deux captures (la publication et le commentaire), masque ce qui permet de t'identifier, puis range la pièce dans ton dossier. Quand le dossier est prêt, tu l'envoies en un seul mail.</p>
+    <p>Fonctionne avec Chrome, Brave et Edge, sur ordinateur.</p>
+  </div>
+
+  <h2>1. Installer l'extension</h2>
+  <ol>
+    <li>Télécharge le ZIP : <a href="https://github.com/Fab-hue/preuve-haine/releases/latest/download/Preuve-Haine.zip"><strong>Télécharger Preuve Haine</strong></a>.</li>
+    <li>Décompresse le fichier ZIP (clic droit, « Extraire tout »). Tu obtiens un dossier qui contient <code>preuve-haine-extension</code>.</li>
+    <li>Ouvre la page des extensions de ton navigateur en tapant dans la barre d'adresse :
+      <ul>
+        <li>Chrome : <code>chrome://extensions</code></li>
+        <li>Brave : <code>brave://extensions</code></li>
+        <li>Edge : <code>edge://extensions</code></li>
+      </ul>
+    </li>
+    <li>Active le <strong>Mode développeur</strong> (interrupteur en haut à droite, ou à gauche sur Edge).</li>
+    <li>Clique sur <strong>Charger l'extension non empaquetée</strong> et choisis le dossier <code>preuve-haine-extension</code>.</li>
+    <li>Clique sur l'icône puzzle de la barre d'outils, puis sur l'épingle à côté de « Preuve Haine » pour garder son icône visible.</li>
+  </ol>
+  <p>Le navigateur peut afficher un avertissement sur les extensions en mode développeur : c'est normal pour une extension qui ne vient pas du Chrome Web Store. Ne supprime pas le dossier <code>preuve-haine-extension</code> après l'installation : le navigateur s'en sert.</p>
+
+  <h2>2. Paramétrer</h2>
+  <p>Clic droit sur l'icône de l'extension, puis <strong>Options</strong>.</p>
+
+  <h3>La clé Claude (facultative)</h3>
+  <p>Deux façons de qualifier une pièce, au choix :</p>
+  <table>
+    <tr><th>Sans clé</th><th>Avec une clé Claude</th></tr>
+    <tr>
+      <td>Gratuit. Tu écris toi-même, pour chaque pièce, le verdict, l'infraction envisagée et pourquoi le commentaire te semble illégal.</td>
+      <td>Claude lit les captures et propose un verdict, l'article de loi français ou belge et une explication. Tu valides ou corriges. Environ 3 à 5 centimes par pièce.</td>
+    </tr>
+  </table>
+  <p>Pour obtenir une clé : crée un compte sur <a href="https://console.anthropic.com">console.anthropic.com</a>, ajoute quelques euros de crédit (section « Billing »), puis crée une clé dans « API Keys ». Colle-la dans les options et clique sur « Enregistrer la clé ».</p>
+  <div class="encadre encadre--alerte">
+    <p>Ta clé donne accès à ton crédit : ne la partage jamais et n'installe pas l'extension sur un ordinateur partagé. Elle reste dans ton navigateur et n'est envoyée qu'à Anthropic.</p>
+  </div>
+
+  <h3>Les associations</h3>
+  <p>Le dossier part en un seul mail, les associations en copie cachée. Deux adresses vérifiées sont déjà remplies :</p>
+  <ul>
+    <li><code>accueil@mrap.fr</code> : MRAP (Mouvement contre le racisme et pour l'amitié entre les peuples)</li>
+    <li><code>ldh@ldh-france.org</code> : Ligue des droits de l'Homme</li>
+  </ul>
+  <p>Tu peux en ajouter ou en retirer, une adresse par ligne. La LICRA (<a href="https://www.licra.org/signaler">licra.org/signaler</a>), SOS Racisme, le CRIF et Unia en Belgique reçoivent plutôt les signalements par formulaire.</p>
+
+  <h2>3. Utiliser</h2>
+  <ol>
+    <li><strong>Archiver.</strong> Sur Facebook, sélectionne le texte d'un commentaire, fais un clic droit, puis choisis « Archiver comme preuve ». L'écran défile une seconde vers la publication puis revient : c'est la seconde capture.</li>
+    <li><strong>Qualifier.</strong> Clique sur l'icône de l'extension pour ouvrir ton dossier. Chaque pièce affiche l'analyse de Claude, ou un formulaire « Qualifier moi-même » si tu n'as pas de clé. Tu peux toujours corriger l'analyse avec « Modifier la qualification ».</li>
+    <li><strong>Trier.</strong> « Ajouter au dossier » pour les contenus à signaler, « Rejeter » pour les autres.</li>
+    <li><strong>Envoyer.</strong> Dans l'onglet « Validée », clique sur « Préparer le dossier ». Puis :
+      <ol>
+        <li>« Télécharger le ZIP » : toutes les captures et un récapitulatif texte en un seul fichier ;</li>
+        <li>« Ouvrir le brouillon Gmail » (ou « Autre messagerie ») : joins le ZIP, relis, puis clique sur « Envoyer » ;</li>
+        <li>« Clore le dossier » : les pièces passent dans l'onglet « Envoyée ». Le bouton apparaît aussi en bas de l'écran dès l'ouverture du brouillon, et dans l'onglet « Validée ».</li>
+      </ol>
+    </li>
+    <li><strong>Pharos.</strong> Pour la France, signale aussi sur <a href="https://www.internet-signalement.gouv.fr">internet-signalement.gouv.fr</a> : le bouton « Copier le texte du dossier » te donne le texte à coller.</li>
+  </ol>
+
+  <h2>4. Rester anonyme</h2>
+  <ul>
+    <li>Les captures sont recadrées sur la publication : la barre du haut, le menu de gauche et ta zone « Écrire un commentaire » n'y figurent pas ou sont noircis.</li>
+    <li>Vérifie quand même tes premières captures : si ton nom ou ta photo apparaît (par exemple sous un de tes propres commentaires), rejette la pièce.</li>
+    <li>Le mail part de ton adresse : les associations la verront. Pour rester anonyme, utilise une adresse dédiée.</li>
+    <li>Pharos accepte les signalements sans laisser ses coordonnées.</li>
+  </ul>
+
+  <h2>5. Ce qui est illégal, et ce qui ne l'est pas</h2>
+  <p>Un commentaire choquant n'est pas forcément punissable. Pour que le signalement soit utile, garde les contenus qui relèvent vraiment de la loi.</p>
+  <table>
+    <tr><th>Exemple</th><th>Verdict probable</th></tr>
+    <tr><td>Comparer un groupe (musulmans, Noirs, juifs…) à des animaux, le déshumaniser</td><td class="oui">Injure publique à caractère racial ou religieux</td></tr>
+    <tr><td>Appeler à exclure, chasser ou violenter un groupe</td><td class="oui">Provocation à la haine ou à la violence</td></tr>
+    <tr><td>Nier ou approuver la Shoah, glorifier Hitler, codes « 88 » ou « 1488 »</td><td class="oui">Négationnisme ou apologie de crime contre l'humanité</td></tr>
+    <tr><td>Accuser tout un groupe d'un fait précis (« ils sont tous des voleurs »)</td><td class="oui">Diffamation à caractère racial</td></tr>
+    <tr><td>Critiquer l'immigration, une religion ou un gouvernement</td><td class="non">En général légal</td></tr>
+    <tr><td>Sarcasme ou cliché isolé, sans insulte (« bon voyage »)</td><td class="non">En général légal</td></tr>
+  </table>
+  <p>Textes de référence : en France, la loi du 29 juillet 1881 (art. 24, 24 bis, 32, 33) et l'art. R645-1 du Code pénal ; en Belgique, les lois du 30 juillet 1981, du 23 mars 1995 et du 10 mai 2007. Ni l'extension ni Claude ne donnent un avis juridique : c'est toi qui décides.</p>
+
+  <h2>6. Les bonnes pratiques</h2>
+  <div class="encadre encadre--alerte">
+    <p>Signale aux autorités et aux associations, et à personne d'autre. Ne publie pas les noms des auteurs, ne contacte pas leur employeur ni leur entourage, ne réponds pas aux commentaires : c'est contre-productif et cela peut se retourner contre toi (harcèlement, diffusion d'informations personnelles).</p>
+  </div>
+  <ul>
+    <li>Les preuves sont stockées uniquement dans ton navigateur. Utilise régulièrement « Exporter les preuves » pour en garder une copie.</li>
+    <li>L'empreinte SHA-256 prouve qu'une capture n'a pas été modifiée depuis l'archivage, pas que la page était authentique. Pour une plainte en justice, un constat par un commissaire de justice reste la référence.</li>
+    <li>Si Facebook change sa présentation, l'auteur ou la seconde capture peuvent ne plus être détectés : vérifie chaque pièce avant de l'envoyer.</li>
+  </ul>
+
+  <h2>7. Mettre à jour</h2>
+  <p>Remplace le contenu du dossier <code>preuve-haine-extension</code> par la nouvelle version, sans déplacer ni renommer le dossier, puis clique sur ↻ sous « Preuve Haine » dans la page des extensions. Tes preuves et tes réglages sont conservés. Par précaution, exporte tes preuves avant.</p>
+</main>
+</body>
+</html>

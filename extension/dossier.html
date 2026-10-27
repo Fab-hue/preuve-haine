@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dossier de preuves</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Dossier de preuves</h1>
+      <p class="intro">Sélectionne le texte d'un commentaire, fais un clic droit, puis choisis « Archiver comme preuve ». Chaque pièce attend ta validation avant tout signalement.</p>
+    </header>
+
+    <div class="barre">
+      <div class="onglets" role="tablist" id="onglets"></div>
+      <div class="actions" style="margin: 0 0 8px">
+        <a class="bouton" href="options.html">Options</a>
+        <button class="bouton" id="exporter" type="button">Exporter les preuves</button>
+      </div>
+    </div>
+
+    <div class="pieces" id="pieces"></div>
+
+    <p class="note">L'analyse automatique est une aide, pas un avis juridique. L'empreinte SHA-256 prouve que la capture n'a pas été modifiée depuis l'archivage. Pour un dossier qui doit tenir devant un tribunal, fais aussi établir un constat par un commissaire de justice. Les preuves sont stockées dans ce navigateur uniquement : exporte-les régulièrement.</p>
+  </main>
+
+  <dialog id="visionneuse">
+    <form method="dialog"><button class="bouton" type="submit">Fermer</button></form>
+    <img id="visionneuse-image" alt="Capture d'écran en taille réelle">
+  </dialog>
+
+  <script type="module" src="dossier.js"></script>
+</body>
+</html>
